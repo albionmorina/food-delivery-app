@@ -1,5 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const url = process.env.MONGO_URL;
+
 
 export const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://greatstack:3616269690900@cluster0.y6bsz.mongodb.net/delivery-app').then(()=> console.log("DB Connected"));
+    await mongoose.connect(url)
+    .then(()=> console.log("DB Connected"));
 }
